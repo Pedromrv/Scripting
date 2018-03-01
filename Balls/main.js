@@ -1,19 +1,19 @@
 // setup canvas
 
 var canvas = document.querySelector('canvas');
-var ctx = canvas.getContext('2d');
-
+var ctx = canvas.getContext('2d'); //getContext() method on it to give us a context on which we can start to draw.
+                                  //The resulting variable (ctx) is the object that directly represents the drawing area of the canvas and allows us to draw 2D shapes on it
 var width = canvas.width = window.innerWidth;
-var height = canvas.height = window.innerHeight;
+var height = canvas.height = window.innerHeight;//to equal the width and height of the browser viewport
 
 // function to generate random number
 
 function random(min,max) {
-  var num = Math.floor(Math.random()*(max-min)) + min;
+  var num = Math.floor(Math.random()*(max-min)) + min; //This function takes two numbers as arguments, and returns a random number in the range between the two
   return num;
 }
 
-// define Ball constructor
+// define Ball constructor, parameters that define ball properties.
 
 function Ball(x, y, velX, velY, color, size) {
   this.x = x;
@@ -27,10 +27,10 @@ function Ball(x, y, velX, velY, color, size) {
 // define ball draw method
 
 Ball.prototype.draw = function() {
-  ctx.beginPath();
-  ctx.fillStyle = this.color;
-  ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-  ctx.fill();
+  ctx.beginPath();  //state that we want to draw a shape on the paper
+  ctx.fillStyle = this.color; //define what color we want the shape to be
+  ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI); //use the arc() method to trace an arc shape on the paper. (x,y) are the positions of the arc's center
+  ctx.fill();  //fill() used to finish the draw and fill everything with the color we choose in fillStyle
 };
 
 // define ball update method
