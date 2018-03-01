@@ -32,10 +32,17 @@ Ball.prototype.draw = function() {
   ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI); //use the arc() method to trace an arc shape on the paper. (x,y) are the positions of the arc's center
   ctx.fill();  //fill() used to finish the draw and fill everything with the color we choose in fillStyle
 };
+//------------------
+// var testBall = new Ball(50, 100, 4, 4, 'blue', 10);
+// testBall.x
+// testBall.size
+// testBall.color
+// testBall.draw()
+//------------------
 
 // define ball update method
 
-Ball.prototype.update = function() {
+Ball.prototype.update = function() {   //update() method to the Ball()'s prototype
   if((this.x + this.size) >= width) {
     this.velX = -(this.velX);
   }
@@ -79,10 +86,10 @@ var balls = [];
 // define loop that keeps drawing the scene constantly
 
 function loop() {
-  ctx.fillStyle = 'rgba(0,0,0,0.25)';
-  ctx.fillRect(0,0,width,height);
+  ctx.fillStyle = 'rgba(0,0,0,0.25)'; //color set to semitransparent
+  ctx.fillRect(0,0,width,height); //fillRect() draw a rectangle of the color across the whole width and height of the canvas
 
-  while(balls.length < 25) {
+  while(balls.length < 26) { //pushes onto the end of the balls array, only till the maximum number we give as length
     var ball = new Ball(
       random(0,width),
       random(0,height),
