@@ -66,7 +66,7 @@ Ball.prototype.update = function() {   //update() method to the Ball()'s prototy
 // define ball collision detection
 
 Ball.prototype.collisionDetect = function() {
-  for(var j = 0; j < balls.length; j++) {
+  for(var j = 0; j < balls.length; j++) {  //for loop, to loop through all the balls in the balls[] array
     if(!(this === balls[j])) {
       var dx = this.x - balls[j].x;
       var dy = this.y - balls[j].y;
@@ -101,15 +101,15 @@ function loop() {
     balls.push(ball);
   }
 
-  for(var i = 0; i < balls.length; i++) {
-    balls[i].draw();
-    balls[i].update();
+  for(var i = 0; i < balls.length; i++) {  //loops through the balls in the array
+    balls[i].draw();  //runs balls draw
+    balls[i].update(); //runs balls update
     balls[i].collisionDetect();
   }
 
-  requestAnimationFrame(loop);
+  requestAnimationFrame(loop);  //runs the function again with requestAnimationFrame() method
 }
 
 
 
-loop();
+loop();  //call the function once to get the animation started
